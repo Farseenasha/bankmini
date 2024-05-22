@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="user_home">Home</a>
+                <a class="nav-link active" aria-current="page" href="deposite">Deposite</a>
+                <a class="nav-link active" aria-current="page" href="withraw">Withdrawal</a>
+                <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div>
+        {% for i in data %}
+        <p>date</p>
+          <div>{{ i.date }}</div>
+        <p>Details</p>
+          <div>{{ i.details }}</div>
+        <p>Amount</p>
+          <div>{{ i.user_amount }}</div>
+        {% endfor %}        
+      </div> 
+</body>
+</html>

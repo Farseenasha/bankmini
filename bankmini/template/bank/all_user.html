@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            {% for i in users %}
+                {{ i.first_name }}
+                {{ i.image }}
+                <a href="{% url 'user_view' id=i.id %}"><button>View</button></a>
+                <a href=""><button>History</button></a>
+            {% endfor %}<br>
+        </div>
+        
+        
+    </div>
+</body>
+</html>
