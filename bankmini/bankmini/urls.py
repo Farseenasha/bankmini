@@ -35,9 +35,9 @@ urlpatterns = [
     path('user_no',views.user_no),
     path('all_user',views.all_user),
     path('user_view/<int:id>',views.user_view, name="user_view"),
-    path('user_history',views.user_history),
-    
-
+    path('user_history',views.user_history,name="user_history"),
+    path('all_history/<int:id>',views.all_history,name="all_history"),
+    path('userlogout',views.userlogout),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

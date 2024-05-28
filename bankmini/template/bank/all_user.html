@@ -9,9 +9,9 @@
         <div>
             {% for i in users %}
                 {{ i.first_name }}
-                {{ i.image }}
+                <img src="{{ i.image.url }}" alt="">
                 <a href="{% url 'user_view' id=i.id %}"><button>View</button></a>
-                <a href=""><button>History</button></a>
+                <a href="{% url 'all_history' id=i.id %}"><button>History</button></a>
             {% endfor %}<br>
         </div>
         

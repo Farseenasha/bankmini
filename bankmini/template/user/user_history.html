@@ -16,12 +16,20 @@
                 <a class="nav-link active" aria-current="page" href="user_home">Home</a>
                 <a class="nav-link active" aria-current="page" href="deposite">Deposite</a>
                 <a class="nav-link active" aria-current="page" href="withraw">Withdrawal</a>
-                <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
+                <a class="nav-link active" aria-current="page" href="userlogout">Logout</a>
               </div>
             </div>
           </div>
         </nav>
       </div>
+      <!-- <div>
+        <p>date</p>
+          <div>{{ data.date }}</div>
+        <p>Details</p>
+          <div>{{ data.details }}</div>
+        <p>Amount</p>
+          <div>{{ data.user_amount }}</div>        
+      </div> -->
       <div>
         {% for i in data %}
         <p>date</p>
@@ -30,7 +38,7 @@
           <div>{{ i.details }}</div>
         <p>Amount</p>
           <div>{{ i.user_amount }}</div>
-        {% endfor %}        
+          {% endfor %}        
       </div> 
 </body>
 </html>

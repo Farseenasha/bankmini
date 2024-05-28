@@ -70,7 +70,7 @@ def edit_profile(request):
         data.save()
         return redirect(user_profile)
     else:
-        return render(request,'user/edit_profile.html')
+        return render(request,'user/edit_profile.html',{'data':data})
 
 def user_home(request):
     data = Customs.objects.get(id=request.user.id)
@@ -124,6 +124,7 @@ def deposite(request):
 
 def user_history(request):
     data = Transaction.objects.filter(user_id=request.user.id)
+    print(data)
     return render(request,'user/user_history.html',{'data':data})
 
 def more(request):
@@ -171,4 +172,9 @@ def user_view(request,id):
     return render(request,'bank/user_view.html',{'data':data})
 
 def all_history(request,id):
-    history = Transaction.objects.get()
+    history = Transaction.objects.filter(user_id=id)
+    return render(request,'bank/all_history.html',{'history':history})
+
+def userlogout(request):
+    auth.logout(request)
+    return redirect(all_login)
