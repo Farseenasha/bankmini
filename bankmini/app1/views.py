@@ -39,7 +39,7 @@ def all_login(request):
         admin_user = auth.authenticate(request,username=Username,password=Password)
         if admin_user is not None and admin_user.is_staff:
             auth.login(request,admin_user)
-            return redirect(admin_home)
+            return redirect(admin_profile)
         data = auth.authenticate(username=Username,password=Password)
         if data is not None:
             auth.login(request,data)
@@ -66,7 +66,8 @@ def edit_profile(request):
         data.username =  request.POST['username']
         data.dob =  request.POST['dob']
         data.phone_no =  request.POST['phone_no']
-        data.image =  request.FILES['image']
+        if 'image' in request.FILES:
+            data.image =  request.FILES['image']
         data.save()
         return redirect(user_profile)
     else:
@@ -166,6 +167,14 @@ def user_no(request):
 def all_user(request):
     all_user = Customs.objects.filter(user_type="user")
     return render(request, 'bank/all_user.html', {'users': all_user})
+
+def search_user(request):
+    if request.method == "POST" :
+        search = request.POST["search"]
+        data = Customs.objects.filter(first_name__icontains=search)
+        return render(request,'bank/all_user.html',{'data':data})
+    else:
+        return render(request,'bank/all_user.html')
 
 def user_view(request,id):
     data = Customs.objects.get(id=id)

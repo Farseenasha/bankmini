@@ -22,7 +22,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', views.all_login, name="admin"),
+    # path('admin/', admin.site.urls),
+    path('', views.all_login, name="admin"),
     path('user_register',views.user_register, name="user_register"),
     path('user_profile',views.user_profile),
     path('admin_register',views.admin_home),
@@ -38,6 +39,7 @@ urlpatterns = [
     path('user_history',views.user_history,name="user_history"),
     path('all_history/<int:id>',views.all_history,name="all_history"),
     path('userlogout',views.userlogout),
+    path('search_user',views.search_user),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
